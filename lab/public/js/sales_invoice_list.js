@@ -3,10 +3,10 @@ $.extend(frappe.listview_settings["Sales Invoice"], {
 	"post_render": function(list) {
 		var options = list.page.fields_dict.customer_group.$input.children();
 
-		if (options.length > 3) 
+		if (options.length > 2) 
 		{
 			list.page.fields_dict.customer_group.$input.empty();
-			list.page.fields_dict.customer_group.$input.add_options(["Clientes", "Proveedores", "Alquiler"]);
+			list.page.fields_dict.customer_group.$input.add_options(["Consulta Privada", "Consulta Seguro", "Proveedores"]);
 		}
 
 		lab.sinv.set_customer_query(list);
@@ -21,7 +21,7 @@ $.extend(lab.sinv, {
 			return {
 				"query": "lab.queries.customer_query",
 				"filters": {
-					"customer_group": customer_group || "Clientes"
+					"tipo_de_factura": customer_group
 				}
 			}
 		}

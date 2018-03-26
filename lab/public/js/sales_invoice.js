@@ -62,7 +62,7 @@ frappe.ui.form.on("Sales Invoice", {
 		});
 		frm.clear_table("payments")
 		frm.set_value("referido", 0)
-
+		frm.set_value("is_pos", frm.doc.tipo_de_factura == "Proveedores" ? 0 : 1);
 		if (frm.doc.tipo_de_factura == "Consulta Seguro") {
 			if(frm.is_new()) {
 				frm.set_value("cobertura", frappe.boot.conf.autorizado_por_seguros);
