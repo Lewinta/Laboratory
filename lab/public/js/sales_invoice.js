@@ -82,7 +82,7 @@ frappe.ui.form.on("Sales Invoice", {
 
 		frm.set_query("customer", () => {
 				let condition = frm.doc.tipo_de_factura == "Proveedores" ? "Proveedores" : "Clientes";
-
+console.log(condition);
 				return {
 					"query": "erpnext.controllers.queries.customer_query",
 					"filters": {
